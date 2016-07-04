@@ -1,0 +1,12 @@
+        {% for post in site.posts %}
+        <div class="email-item email-item-unread pure-g" url="{{ post.url | prepend: site.baseurl }}" cate="{{ post.categories }}">
+            <div class="pure-u">
+                <img class="email-avatar" alt="Eric Ferraiuolo&#x27;s avatar" height="64" width="64" src="img/common/yui-avatar.png">
+            </div>
+            <div class="pure-u-3-4">
+                <h5 class="email-name">{{ post.date | date: "%b %-d, %Y" }}</h5>
+                <h4 class="email-subject">{{ post.title }}</h4>
+                <p class="email-desc">{{ post.excerpt | strip_html }}</p>
+            </div>
+        </div>
+        {% endfor %}

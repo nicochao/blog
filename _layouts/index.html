@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nico</title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/email-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/layouts/email.css">
+    <!--<![endif]-->
+    <style>
+        .email-item:hover
+        {
+        background-color:#ccddff;
+        }
+    </style>
+</head>
+<body>
+
+<div id="layout" class="content pure-g">
+    <div id="nav" class="pure-u">
+        <a href="#" class="nav-menu-button">Menu</a>
+        <div class="nav-inner">
+            <button class="primary-button pure-button">All Posts</button>
+            
+            <div class="pure-menu">
+                <ul class="pure-menu-list">
+
+                    <li class="pure-menu-heading">Labels</li>
+
+                    {% include cate.html %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="list" class="pure-u-1">
+
+        {% include list.html %}
+
+    </div>
+
+    <div id="main" class="pure-u-1">
+
+        {{ content }}
+
+    </div>
+</div>
+
+<script src="css/yui-min.js"></script>
+<script src="css/jquery-3.0.0.min.js"></script>
+
+<script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+
+        var menuButton = Y.one('.nav-menu-button'),
+            nav        = Y.one('#nav');
+
+        // Setting the active class name expands the menu vertically on small screens.
+        menuButton.on('click', function (e) {
+            nav.toggleClass('active');
+        });
+
+        // Your application code goes here...
+
+    });
+</script>
+
+<script>
+    $(".primary-button").click(function(){
+        $(".email-item").show();
+    });
+    $(".pure-menu-link").click(function(){
+        var cate=$(this).attr("cate");
+        $(".email-item[cate="+cate+"]").show();
+        $(".email-item[cate!="+cate+"]").hide();
+    });
+    $(".email-item").click(function(){
+        $.get($(this).attr("url"),function(data,status){main.innerHTML=data;});
+        $(".email-item-selected").attr("class","email-item pure-g");
+        $(this).attr("class","email-item email-item-selected pure-g");
+    });
+
+
+</script>
+
+
+
+
+</body>
+</html>
+
