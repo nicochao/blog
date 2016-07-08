@@ -2,11 +2,11 @@
                 <div class="pure-u-1-2">
                     <h1 class="email-content-title">{{ page.title }}</h1>
                     <p class="email-content-subtitle">
-                        {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
+                    {{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
                     </p>
                 </div>
             </div>
 
-            <div class="email-content-body">
+            <div class="email-content-body markdown-body">
                 {{ content }}
             </div>
