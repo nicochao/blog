@@ -4,7 +4,7 @@ title: ubuntu下的中文显示问题
 categories: Ubuntu
 ---
 
-##一. Ubuntu默认的中文字符编码
+## 一. Ubuntu默认的中文字符编码
 
 <!-- more -->
 Ubuntu默认的中文字符编码为zh_CN.UTF-8，这个可以在<code>/etc/environment</code>中看到：
@@ -20,9 +20,9 @@ Ubuntu默认的中文字符编码为zh_CN.UTF-8，这个可以在<code>/etc/envi
 
 注：可以通过这里修改默认的中文编码字符，比如修改为：zh_CN.GBK。
 
-##二. 添加中文字符编码的方法
+## 二. 添加中文字符编码的方法
 
-###1.直接使用locale-gen
+### 1.直接使用locale-gen
 
 在终端输入命令：
 
@@ -37,7 +37,7 @@ Ubuntu默认的中文字符编码为zh_CN.UTF-8，这个可以在<code>/etc/envi
 
 说明添加成功。
 
-###2.通过修改/var/lib/locales/supported.d/local文件
+### 2.通过修改/var/lib/locales/supported.d/local文件
 在终端输入命令行
 
     sudo gedit /var/lib/locales/supported.d/local
