@@ -81,6 +81,7 @@
         $(".email-item[cate!="+cate+"]").hide();
     });
     $(".email-item").click(function(){
+        main.innerHTML="Loading files...Please wait...";
         $.get($(this).attr("url"),function(data,status){main.innerHTML=data;});
         $(".email-item-selected").attr("class","email-item pure-g");
         $(this).attr("class","email-item email-item-selected pure-g");
